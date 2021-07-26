@@ -33,6 +33,18 @@ public class ControlBiblioteca {
 
     }
 
+    //Método que nos devuelve un Objeto der tipo libro
+    public Libro rellenar() {
+        Libro l = null;
+
+        String nombre = JOptionPane.showInputDialog(null, "Introduce el Nombre del Libro", "Introduciendo Libro", 1);
+        String autor = JOptionPane.showInputDialog(null, "Introduce el Autor del Libro", "Introduciendo Autor", 1);
+        int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce la cantidad de piezas del libro " + nombre, "introduciendo Cantidad", 1));
+        l=new Libro(nombre, autor, cantidad);
+        return l;
+
+    }
+
     //Metodo para registrar un libro
     public void addLibro(Libro l) {
         libros.add(l);
@@ -41,7 +53,7 @@ public class ControlBiblioteca {
     }
 
     //Metodo para dar de baja a un libro
-  /*  public void deleteBook(String isbn) {
+    public void deleteBook(String isbn) {
         boolean encontrado = false;
         for (int i = 0; i < libros.size() && !encontrado; i++) {
             if (libros.get(i).getIsbn().equals(isbn)) {
@@ -55,7 +67,7 @@ public class ControlBiblioteca {
         if (!encontrado) {
             JOptionPane.showMessageDialog(null, "No se encontro el Libro", "Error de Busqueda", 2);
         }
-    }*/
+    }
 
     //Metodo para buscar un libro
     public void serchBook(String isbn) {
@@ -88,14 +100,13 @@ public class ControlBiblioteca {
                                 prestados.get(j).setCantidad(prestados.get(j).getCantidad() + 1);
                                 fin = true;
                                 encontrado = true;
-                            }
-                            else if (!fin && ( j==prestados.size() - 1)) {
+                            } else if (!fin && (j == prestados.size() - 1)) {
                                 Libro l = new Libro(libros.get(i).getNombre(), libros.get(i).getAutor(), 1);
                                 l.setIsbn(libros.get(i).getIsbn());
                                 prestados.add(l);
                                 contadorPrestados++;
                                 encontrado = true;
-                                fin=true;
+                                fin = true;
                             }
                         }
 
@@ -156,7 +167,7 @@ public class ControlBiblioteca {
     public void mostrarLibrosPrestados() {
         System.out.println("Libros Prestados");
         for (Libro i : prestados) {
-            
+
             System.out.println("ISBN: " + i.getIsbn() + "\nNombre: " + i.getNombre() + "\nAutor: " + i.getAutor() + "\nCantidad: " + i.getCantidad());
             System.out.println("");
         }
