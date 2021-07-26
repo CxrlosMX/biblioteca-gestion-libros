@@ -45,6 +45,58 @@ public class Aplicacion {
                         break;
                     }
                     case 2: {//Ménu prestamo
+                        if (control.noEstaVacia()) {
+                            do {
+                                try {
+                                    op2 = Integer.parseInt(JOptionPane.showInputDialog(null, "    REGISTRO PRESTAMO\n"
+                                            + "1.-Realizar Prestamo\n"
+                                            + "2.-Reponer Libro\n"
+                                            + "3.-Mostrar Libros Prestados\n"
+                                            + "4.-Salir al Menu Principal\n"
+                                            + "¿Qué deseá realizar?", "MENU PRESTAMO", 3));
+                                    switch (op2) {
+                                        case 1: {
+                                            isbn = JOptionPane.showInputDialog(null, "Introduce el ISBN", "Prestando", 1);
+                                            control.prestarLibro(isbn);
+                                            break;
+                                        }
+                                        case 2: {
+                                            isbn = JOptionPane.showInputDialog(null, "Introduce el ISBN", "Reponiendo", 1);
+                                            control.reponerLibro(isbn);
+
+                                            break;
+                                        }
+                                        case 3: {
+                                            if (control.noEstaVaciaPrestados()) {
+                                                control.mostrarLibrosPrestados();
+                                            } else {
+                                                JOptionPane.showMessageDialog(null, "Lista Prestamo Vacia", "Lista Vacia", 2);
+                                            }
+
+                                            break;
+                                        }
+                                        case 4: {
+                                            JOptionPane.showMessageDialog(null, "Saliendo al Menu Principal", "Saliendo", 2);
+
+                                            break;
+                                        }
+                                        default: {
+                                            JOptionPane.showMessageDialog(null, "Introduce una opción valida", "Error de Opción", 0);
+
+                                            break;
+                                        }
+
+                                    }
+
+                                } catch (NumberFormatException e) {
+                                    JOptionPane.showMessageDialog(null, "Error " + e.getMessage(), "Error", 1);
+
+                                }
+
+                            } while (op2 != 4);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Biblioteca Vacia", "Lista Vacia", 1);
+                        }
 
                         break;
                     }
@@ -68,10 +120,12 @@ public class Aplicacion {
                         break;
                     }
                     case 5: {
+                        JOptionPane.showMessageDialog(null, "Cerrando Programa", "Saliendo", 2);
 
                         break;
                     }
                     default: {
+                        JOptionPane.showMessageDialog(null, "Introduce una opción valida", "Error de Opción", 0);
 
                         break;
                     }

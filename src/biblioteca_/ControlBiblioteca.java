@@ -40,7 +40,7 @@ public class ControlBiblioteca {
         String nombre = JOptionPane.showInputDialog(null, "Introduce el Nombre del Libro", "Introduciendo Libro", 1);
         String autor = JOptionPane.showInputDialog(null, "Introduce el Autor del Libro", "Introduciendo Autor", 1);
         int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce la cantidad de piezas del libro " + nombre, "introduciendo Cantidad", 1));
-        l=new Libro(nombre, autor, cantidad);
+        l = new Libro(nombre, autor, cantidad);
         return l;
 
     }
@@ -48,7 +48,7 @@ public class ControlBiblioteca {
     //Metodo para registrar un libro
     public void addLibro(Libro l) {
         libros.add(l);
-        JOptionPane.showMessageDialog(null, "Libro Registrado!!!", "Registrado", 1);
+        JOptionPane.showMessageDialog(null, "Libro Registrado Correctamente\n" + l, "Registrado", 1);
         contador++;
     }
 
@@ -74,7 +74,7 @@ public class ControlBiblioteca {
         boolean encontrado = false;
         for (int i = 0; i < libros.size() && !encontrado; i++) {
             if (libros.get(i).getIsbn().equals(isbn)) {
-                JOptionPane.showMessageDialog(null, libros.get(i), "Datos", 1);
+                JOptionPane.showMessageDialog(null, "Libro Encontrado\n" + libros.get(i), "Datos", 1);
                 encontrado = true;
             }
 
@@ -165,9 +165,9 @@ public class ControlBiblioteca {
     }
 
     public void mostrarLibrosPrestados() {
+        System.out.println("");
         System.out.println("Libros Prestados");
         for (Libro i : prestados) {
-
             System.out.println("ISBN: " + i.getIsbn() + "\nNombre: " + i.getNombre() + "\nAutor: " + i.getAutor() + "\nCantidad: " + i.getCantidad());
             System.out.println("");
         }
