@@ -41,7 +41,7 @@ public class ControlBiblioteca {
     }
 
     //Metodo para dar de baja a un libro
-    public void deleteBook(String isbn) {
+  /*  public void deleteBook(String isbn) {
         boolean encontrado = false;
         for (int i = 0; i < libros.size() && !encontrado; i++) {
             if (libros.get(i).getIsbn().equals(isbn)) {
@@ -55,7 +55,7 @@ public class ControlBiblioteca {
         if (!encontrado) {
             JOptionPane.showMessageDialog(null, "No se encontro el Libro", "Error de Busqueda", 2);
         }
-    }
+    }*/
 
     //Metodo para buscar un libro
     public void serchBook(String isbn) {
